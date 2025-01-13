@@ -1,4 +1,5 @@
-//import './App.css'
+import { useState } from 'react'
+import './style.scss'
 import { createBrowserRouter, RouterProvider, Route, Outlet, } from 'react-router-dom'
 import Register from './pages/Register'
 import Login from './pages/Login'
@@ -22,9 +23,9 @@ const Layout = () => {
 // For pages/routes that requires inside the html body, Navbar, Footer, Sections, Hero etc
 const router = createBrowserRouter([
   {
-  path: "/",
-  element: <Layout/>,
-  children:[
+    path: "/",
+    element: <Layout/>,
+    children:[
       {
         path: "/",
         element: <Home/>
@@ -56,11 +57,14 @@ const router = createBrowserRouter([
 
 
 function App() {
+  const [count, setCount] = useState(0)
 
   return (
-      <>
+    <div className='app'>
+        <div className='container'>
         <RouterProvider router={router}/>
-      </>
+      </div>
+    </div>  
   )
 }
 
